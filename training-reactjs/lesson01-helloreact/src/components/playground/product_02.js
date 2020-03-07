@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Product extends Component{
     render(){
         return(
+            <div>
                 <div className='col-12 col-sm-12 col-md-12 col-lg-12'>
                     <div>
                         <img className='img-thumbnail img-fluid'
@@ -10,7 +11,7 @@ class Product extends Component{
                         src={this.props.image}></img>
                         <div className='caption'>
                             <h4>
-                                {this.props.children}
+                                {this.props.name}
                             </h4>
                             <p>
                                 {this.props.price} VND
@@ -21,6 +22,7 @@ class Product extends Component{
                         </div>
                     </div>
                 </div>
+            </div>
         );
     }
 }
