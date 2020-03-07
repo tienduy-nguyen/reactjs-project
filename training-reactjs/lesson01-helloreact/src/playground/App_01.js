@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import './App.css';
-import Header from './components/header';
-import Product from './components/product';
+import Header from '../components/header';
+import Product from '../components/product';
 
 //ES6
 class App extends Component{
