@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
 // import Header from './components/header';
-import Product from './components/product';
+import Product from '../components/product';
 
 //ES6
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    this.onAddToCart = this.onAddToCart.bind(this);
+  onClick(){
+    console.log('This is a app component');
   }
-
-  onAddToCart(){
-    alert(this.props.children);
+  onAddToCart(text){
+    alert(text);
+    console.log(text);
   }
-
-  onAddToCart2 = () =>{
-    alert(`${this.props.children} - ${this.props.price}`);
- }
-
   render() {
     var products = [
       {
@@ -102,8 +96,7 @@ class App extends Component {
               {elements}
             </div>
             <div className ='col-12 col-sm-12 col-md-12 col-lg-12'>
-                <button type='button' className = 'btn btn-warning' onClick={this.onAddToCart2}>Click me!</button>
-                <button type='button' className = 'btn btn-warning' onClick={this.onAddToCart}>Click me!</button>
+                <button type='button' className = 'btn btn-warning' onClick={ () => this.onAddToCart(this.props.children)}>Click me!</button>
             </div>
           </div>
         </div>
