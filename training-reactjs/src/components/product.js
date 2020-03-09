@@ -17,7 +17,6 @@ class Product extends Component{
     render(){
         return(
                 <div >
-                    <div>
                         <img className='img-thumbnail img-fluid'
                         alt={this.props.name}
                         src={this.props.image}></img>
@@ -32,7 +31,6 @@ class Product extends Component{
                                 <a className = 'btn btn-primary'  onClick={this.onAddToCart2} href='/#'>Buy</a>
                             </p>
                         </div>
-                    </div>
                 </div>
         );
     }
