@@ -9,6 +9,7 @@ class App extends Component{
     return(
       <div>
         <Header/>
+        
         <div className='row'>
             <div className='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
                   <Product/>
@@ -17,6 +18,7 @@ class App extends Component{
                   <Product/>
             </div>
         </div>
+      
       </div>
     )
   }
