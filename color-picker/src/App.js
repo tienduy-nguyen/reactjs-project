@@ -8,18 +8,36 @@ import SizeSettings from './components/SizeSettings';
 
 //ES6
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      color: 'red',
+      fontSize : 15
+    };
+    // this.onSetColor = this.onSetColor.bind(this);
+  }
+
+  //De chuyen du lieu tu con sang cha, chung ta su dung va la 1 cai props va nhan lai la 1 function
+
+  onSetColor = (params) =>{
+    this.setState({
+      color : params
+    })
+  }
+
   render() {
     return (
       <div className='container mt-50'>
 
         <div className='row'>
-            <ColorPicker></ColorPicker>
+            <ColorPicker color = {this.state.color} onReceiveColor = {this.onSetColor}></ColorPicker>
             <div className='col-6 col-sm-6 col-md-6 col-lg-6'>
               <SizeSettings></SizeSettings>
               <Reset></Reset>
             </div>
 
-            <Result></Result>
+            <Result color = {this.state.color}></Result>
 
         </div>
       </div>

@@ -8,14 +8,15 @@ class ColorPicker extends Component {
             colors : ['red','green','blue','#ccc']
         };
     }
-    showColor= (color) =>{
+    showColor(color){
        return {
            backgroundColor:color
        }
     }
 
     setActiveColor = (color) => {
-        console.log(color);
+        this.props.onReceiveColor(color);
+        
     }
 
 
@@ -24,7 +25,7 @@ class ColorPicker extends Component {
                 return <span    key={index} 
                                 style = {this.showColor(color)}
                                 className = {this.props.color === color ? 'active' : ''}
-                                onClick = {this.setActiveColor(color)}
+                                onClick = {() => this.setActiveColor(color)}
                         ></span>
         })
 

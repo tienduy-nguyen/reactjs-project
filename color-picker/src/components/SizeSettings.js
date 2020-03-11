@@ -10,7 +10,7 @@ class SizeSettings extends Component {
                     <h3>Size : 15px</h3>
                 </div>
                 <div className="card-body">
-                    <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div className="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
                         <button type='button' className='btn btn-success btn-space'>Decrease</button>
                         <button type='button' className='btn btn-success btn-space'>Increase</button>
                     </div>

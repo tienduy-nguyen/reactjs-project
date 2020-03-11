@@ -44,6 +44,11 @@
   margin-top: 50px;
 }
 
+.mb-5{
+  margin-bottom: 5px;
+}
+
+
 .active{
   border: solid 3px black;
 }
@@ -51,11 +56,12 @@
 #contentSet{
   padding: 10px;
   border: solid 3px red;
+  background-color: aliceblue;
 }
 
 span{
-  padding: 10px 20px;
-  margin : 10px;
+  padding: 8px 18px;
+  margin : 6px;
   cursor :pointer;
 }
 
