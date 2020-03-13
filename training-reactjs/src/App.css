@@ -24,15 +24,20 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
 
-.Ml-30{
-  margin-left: 30 px;
+.ml-30{
+  margin-left: 30px;
 }
-
-
+.mt-100{
+  margin-top: 100px;
+}
+.mt-10{
+  margin-top: 10px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

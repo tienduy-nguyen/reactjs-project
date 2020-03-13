@@ -1,76 +1,14 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { Component } from 'react';
 import './App.css';
-// import Header from './components/header';
-// import Product from './components/product';
+
 
 //ES6
 class App extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: [
-        {
-          id: 1,
-          name: 'Samsung Galaxy A50s',
-          price: 8000000,
-          image: 'https://www.mobile24.fr/images/Samsung-Galaxy-A50-Duos-128GB-Black-8801643759582-08032019-01-p.jpg',
-          status: true
-        }, {
-          id: 2,
-          name: 'Samsung Galaxy A20s',
-          price: 5000000,
-          image: 'https://i0.wp.com/greentech.sn/store/wp-content/uploads/2019/10/Samsung-Galaxy-A20s-blue-bleu.jpg?fit=1000%2C1000&ssl=1',
-          status: true
-        }, {
-          id: 3,
-          name: 'iPhone 11 Pro Max',
-          price: 30000000,
-          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSJsg4FdoOsheUFeM2M-fuBxN_ruioucRsLVFGixk6ElX6-r4TISct0BKSIk0UTHRnv8qcTci9L&usqp=CAc',
-          status: true
-        }, {
-          id: 4,
-          name: 'Huawei P30 Pro',
-          price: 15000000,
-          image: 'https://images-na.ssl-images-amazon.com/images/I/51zoW2V0QtL._AC_SX569_.jpg',
-          status: true
-        }, {
-          id: 5,
-          name: 'OPPO Reno2 F',
-          price: 12000000,
-          image: 'https://images-na.ssl-images-amazon.com/images/I/61kk0LWipnL._AC_SX425_.jpg',
-          status: true
-        }
-      ],
-      isActive: true
-    };
-  }
-
-  onSetState =() =>{
-    this.setState({
-      isActive : !this.state.isActive
-    })
-  }
   render() {
-
-    let elements = this.state.product.map((product, index) => {
-      let result = '';
-      if (product.status) {
-        result = <tr key={product.id}>
-          <th scope="row">{index + 1}</th>
-          <td>{product.name}</td>
-          <td>
-            <span className='badge badge-success'>{product.price} VND</span>
-          </td>
-        </tr>
-      }
-      return result;
-    })
-
     return (
       <div>
         {/* Header */}
-
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <a className="navbar-brand" href="/#">State</a>
           {/* State de luu lai gia tri can thiet cua component */}
@@ -106,44 +44,79 @@ class App extends Component {
         </nav>
 
         <main role="main">
-          {/* Body */}
-          {/* <!-- Main jumbotron for a primary marketing message or call to action --> */}
-          <div className="jumbotron">
-            <div className="container">
-              <h1 className="display-3">Hello, world!</h1>
-              <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-              <p><a className="btn btn-primary btn-lg" href="/#" role="button">Learn more &raquo;</a></p>
-            </div>
-          </div>
+          <div className='container mt-100'>
+            <div className='row'>
+              <div className='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+                <div className="card">
 
-          <div className='container'>
-            <div>
-              <div className="table-reponsive">
-                <table className="table table-bordered table-hover text-justify">
-                  <thead className="grey lighten-2">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Product Name</th>
-                      <th scope="col">Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {elements}
-                  </tbody>
-                </table>
+                  <h5 className="card-header text-white bg-info mb-3 text-center py-4">
+                    <strong>Sign in</strong>
+                  </h5>
 
-                <button type='button' className='btn btn-warning' onClick ={this.onSetState}>
-                Active : {this.state.isActive === true? 'true' : 'false'}
-                </button>
+                  {/* <!--Card content--> */}
+                  <div className="card-body px-lg-5 pt-0 mt-10">
+
+                    {/* <!-- Form --> */}
+                    <form className="text-center" color= "#757575" action="#!">
+
+                      {/* <!-- Email --> */}
+                      <div className="md-form">
+                        <input type="email" id="materialLoginFormEmail" className="form-control" />
+                        <label htmlFor="materialLoginFormEmail">E-mail</label>
+                      </div>
+
+                      {/* <!-- Password --> */}
+                      <div className="md-form">
+                        <input type="password" id="materialLoginFormPassword" className="form-control" />
+                        <label htmlFor="materialLoginFormPassword">Password</label>
+                      </div>
+
+                      <div className="d-flex justify-content-around">
+                        <div>
+                          {/* <!-- Remember me --> */}
+                          <div className="form-check">
+                            <input type="checkbox" className="form-check-input" id="materialLoginFormRemember" />
+                            <label className="form-check-label" htmlFor="materialLoginFormRemember">Remember me</label>
+                          </div>
+                        </div>
+                        <div>
+                          {/* <!-- Forgot password --> */}
+                          <a href="/#">Forgot password?</a>
+                        </div>
+                      </div>
+
+                      {/* <!-- Sign in button --> */}
+                      <button className="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+                      {/* <!-- Register --> */}
+                      <p>Not a member?
+                       <a href="/#">Register</a>
+                      </p>
+
+                      {/* <!-- Social login --> */}
+                      <p>or sign in with:</p>
+                     <a type="button" className="btn-floating btn-fb btn-sm" href = "/#">
+                        <i className="fa fa-facebook"></i>
+                      </a>
+                      <a type="button" className="btn-floating btn-tw btn-sm" href = "/#">
+                        <i className="fa fa-twitter"></i>
+                      </a>
+                      <a type="button" className="btn-floating btn-li btn-sm" href = "/#">
+                        <i className="fa fa-linkedin"></i>
+                      </a>
+                      <a type="button" className="btn-floating btn-git btn-sm" href = "/#">
+                        <i className="fa fa-github"></i>
+                      </a>
+                    </form>
+                    {/* <!-- Form --> */}
+
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
         </main>
-
-        <footer className="container">
-          <p>&copy; TienDuy 2020-2021</p>
-        </footer>
-
       </div>
     )
   }
