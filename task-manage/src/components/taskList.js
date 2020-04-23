@@ -4,9 +4,38 @@ import './taskItem';
 import TaskItem from './taskItem';
 //ES6
 class TaskList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            filterName: '',
+            filterStatus: -1 //all, active 1, desactive -1
+        }
+    }
+    onChange = (event) => {
+        let target = event.target;
+        let name = target.name;
+        let value = target.value;
+        this.props.onFilter(name === 'filterName' ? value : this.state.filterName,
+            name === 'filterStatus' ? value: this.state.filterStatus);
+        this.setState({
+            [name]: value
+        })
 
+    }
 
     render() {
+        const { tasks } = this.props;
+        let { filterName, filterStatus } = this.state;
+        const elemTasks = tasks.map((task, index) => {
+            return <TaskItem key={task.id}
+                index={index}
+                task={task}
+                onUpdateStatus={this.props.onUpdateStatus}
+                onDelete={this.props.onDelete}
+                onUpdate={this.props.onUpdate}
+            ></TaskItem>
+        })
+
         return (
             <div className="row mt-15">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -23,10 +52,19 @@ class TaskList extends Component {
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="text" className="form-control" />
+                                    <input type="text" className="form-control"
+                                        name='filterName'
+                                        value={filterName}
+                                        onChange={this.onChange}
+
+                                    />
                                 </td>
                                 <td>
-                                    <select className="form-control">
+                                    <select className="form-control"
+                                        name='filterStatus'
+                                        value={filterStatus}
+                                        onChange={this.onChange}
+                                    >
                                         <option value="-1">All</option>
                                         <option value="0">Deactive</option>
                                         <option value="1">Active</option>
@@ -34,7 +72,8 @@ class TaskList extends Component {
                                 </td>
                                 <td></td>
                             </tr>
-                            {TaskItem}
+                            {/* Render task item */}
+                            {elemTasks}
                         </tbody>
                     </table>
                 </div>

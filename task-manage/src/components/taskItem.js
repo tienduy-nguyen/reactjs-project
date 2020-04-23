@@ -3,28 +3,45 @@ import React, { Component } from 'react';
 
 //ES6
 class TaskItem extends Component {
-
+    onUpdateStatus = () => {
+        this.props.onUpdateStatus(this.props.task.id);
+    }
+    onDelete = () => {
+        this.props.onDelete(this.props.task.id);
+    }
+    onUpdate = () =>{
+        this.props.onUpdate(this.props.task.id);
+    }
     render() {
+        let { task, index } = this.props;
         return (
-
             <tr>
-                <td>1</td>
-                <td>Learn to code</td>
+                <td>{index + 1}</td>
+                <td>{task.name}</td>
                 <td className="text-center">
-                    <span className="label label-success">
-                        Active
-                                              </span>
+                    <span
+                        onClick={this.onUpdateStatus}
+                        className={task.status === true
+                            ? 'badge badge-success badge-status'
+                            : 'badge badge-secondary badge-status'}>
+
+                        {task.status === true ? 'Active' : 'Desactive'}</span>
                 </td>
                 <td className="text-center">
-                    <a type="button" className="btn btn-warning" href='/#'>
-                        <i className="fa fa-pencil mr-2"></i>Edit
-                                      </a>
+                    <button type="button" className="btn btn-warning" href='/#'
+                            onClick={this.onUpdate}
+                    >
+                        <i className="fas fa-edit mr-2"></i>Edit
+                    </button>
                                       &nbsp;
-                                      <a type="button" className="btn btn-danger" href='/#'>
-                        <i className="fa fa-trash mr-2"></i>Remove
-                                      </a>
+                    <button type="button" className="btn btn-danger" href='/#'
+                        onClick={this.onDelete}>
+                        <i className="fas fa-trash mr-2"
+                        ></i>Remove
+                    </button>
                 </td>
             </tr>
+
         )
     }
 }

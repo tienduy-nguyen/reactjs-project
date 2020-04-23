@@ -11,6 +11,7 @@ class App extends Component {
 
   constructor(props){
     super(props);
+    //Ta dat 1 state mac dinh color cho app
     this.state = {
       color: 'red',
       fontSize : 12
