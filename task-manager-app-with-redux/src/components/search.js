@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
 
 //ES6
 class Search extends Component {
@@ -10,11 +12,8 @@ class Search extends Component {
         }
     }
     onChange = (event) => {
-        let target = event.target;
-        let name = target.name;
-        let value = target.value;
         this.setState({
-            [name]: value
+            keyword: event.target.value
         })
     }
     onSearch = () => {
@@ -47,4 +46,18 @@ class Search extends Component {
     }
 }
 
-export default Search;
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks, //State lay trong reducers/index --> no se duoc chuyen thanh props cua component
+    }
+}
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onSearch: (keyword) => {
+            dispatch(actions.searchTask(keyword))
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
+

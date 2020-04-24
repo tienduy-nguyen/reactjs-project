@@ -1,14 +1,20 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index'
 
 //ES6
 class Sort extends Component {
     onClick = (sortBy, sortValue) => {
-        this.props.onSort(sortBy, sortValue);
+        let sort = {
+            by: sortBy,
+            value: sortValue
+        }
+        this.props.onSort(sort);
     }
     render() {
-        let sortBy = this.props.sortBy;
-        let sortValue = this.props.sortValue;
+        let sortBy = this.props.sort.by || 'status';
+        let sortValue = this.props.sort.value || 1;
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div className="dropdown">
@@ -47,13 +53,13 @@ class Sort extends Component {
                         <li onClick={() => this.onClick('status', 1)}>
                             <a role="button" href='/#'
 
-                            >Status Active
+                            >Status activate
                              <i className={(sortBy === 'status' && sortValue === 1) ? 'fas fa-check ml-2 sort_selected-icon' : ''}
                                 ></i>
                             </a></li>
                         <li onClick={() => this.onClick('status', -1)}>
                             <a role="button" href='/#'>
-                                Status Deactive
+                                Status deactivate
                              <i className={(sortBy === 'status' && sortValue === -1) ? 'fas fa-check ml-2 sort_selected-icon' : ''}
 
                                 ></i>
@@ -66,4 +72,17 @@ class Sort extends Component {
     }
 }
 
-export default Sort;
+const mapStateToProps = (state) => {
+    return {
+        sort: state.sort //lay ra tu action
+    }
+}
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onSort: (sort) => {
+            dispatch(actions.sortTask(sort))
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sort);

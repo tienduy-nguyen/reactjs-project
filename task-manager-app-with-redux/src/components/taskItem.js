@@ -1,16 +1,20 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from 'react';
+import * as actions from '../actions/index';
+import { connect } from 'react-redux';
 
 //ES6
 class TaskItem extends Component {
     onUpdateStatus = () => {
         this.props.onUpdateStatus(this.props.task.id);
     }
-    onDelete = () => {
-        this.props.onDelete(this.props.task.id);
+    onDeleteTask = () => {
+        this.props.onDeleteTask(this.props.task.id);
+        this.props.onCloseForm();
     }
-    onUpdate = () =>{
-        this.props.onUpdate(this.props.task.id);
+    onEditTask = () => {
+        this.props.onEditTask(this.props.task);
+        this.props.onOpenForm();
     }
     render() {
         let { task, index } = this.props;
@@ -25,17 +29,17 @@ class TaskItem extends Component {
                             ? 'badge badge-success badge-status'
                             : 'badge badge-secondary badge-status'}>
 
-                        {task.status === true ? 'Active' : 'Desactive'}</span>
+                        {task.status === true ? 'Activate' : 'Deactivate'}</span>
                 </td>
                 <td className="text-center">
                     <button type="button" className="btn btn-warning" href='/#'
-                            onClick={this.onUpdate}
+                        onClick={this.onEditTask}
                     >
                         <i className="fas fa-edit mr-2"></i>Edit
                     </button>
                                       &nbsp;
                     <button type="button" className="btn btn-danger" href='/#'
-                        onClick={this.onDelete}>
+                        onClick={this.onDeleteTask}>
                         <i className="fas fa-trash mr-2"
                         ></i>Remove
                     </button>
@@ -46,4 +50,31 @@ class TaskItem extends Component {
     }
 }
 
-export default TaskItem;
+
+const mapStateToProps = state => {
+    return {
+
+    };
+}
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onUpdateStatus: (id) => {
+            dispatch(actions.updateStatus(id))
+        },
+        onEditTask: (task) => {
+            dispatch(actions.editTask(task))
+        },
+        onDeleteTask: (id) => {
+            dispatch(actions.deleteTask(id))
+        },
+        onCloseForm: () => {
+            dispatch(actions.closeForm());
+        },
+        onOpenForm: () => {
+            dispatch(actions.openForm())
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskItem);
+
