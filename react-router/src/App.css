@@ -88,3 +88,8 @@ body {
 .dropdown-menu {
   padding: 4px 8px;
 }
+
+.active{
+  background-color: #494E53;
+  font-weight: 600;
+}
