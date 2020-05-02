@@ -1,15 +1,30 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
-import Home from './components/home';
-import About from './components/about';
-import Contact from './components/contact';
-import NotFound from './components/notFound';
+import routes from './routes';
 import Nav from './components/nav';
 
 
 class App extends Component {
+  showContentMenu = (routes) => {
+    let result = null;
+    if (routes.length > 0) {
+      result = routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.main}>
+          </Route>
+        )
+      }
+      )
+    }
+    return result;
+  }
+
   render() {
     return (
       <Router>
@@ -19,10 +34,7 @@ class App extends Component {
           <div className="container">
             {/* Noi dung         */}
             <Switch>
-              <Route path='/' exact component={Home}></Route>
-              <Route path='/contact' exact component={Contact}></Route>
-              <Route path='/about' exact component={About}></Route>
-              <Route component={NotFound}></Route>
+              {this.showContentMenu(routes)}
             </Switch>
           </div>
         </div>
