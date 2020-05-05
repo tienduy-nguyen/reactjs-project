@@ -1,0 +1,120 @@
+* {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 87.5%;
+  line-height: 1.6rem;
+  /* font-family: 'Roboto', sans-serif; */
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+.mb-10{
+  margin-bottom: 10px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.mr-2 {
+  margin-right: 2px;
+}
+.mb-5{
+  margin-bottom: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.p-r-5 {
+  padding-right: 5px;
+}
+
+.dropdown-menu .fa:before {
+  padding-right: 10px;
+}
+
+.text-right {
+  float: right;
+  cursor: pointer;
+}
+.app__title {
+  display: block;
+  align-items: center;
+  background-color: #00d9e1;
+}
+.app__title-text {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.text-right:hover {
+  color: red;
+}
+
+.sort_selected-icon {
+  color: #28a745;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.card-header__icon-close {
+  color: red;
+  cursor: pointer;
+  line-height: 0;
+  font-size: 1.3rem;
+}
+.card-header__icon:hover {
+  color: #e25454;
+}
+.badge {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.badge-status {
+  cursor: pointer;
+}
+.dropdown-menu {
+  padding: 4px 8px;
+}
+
+.active{
+  background-color: #494E53;
+  font-weight: 600;
+}
+.btn{
+  margin-left: 0;
+}
+
+.product-form__add{
+  position: abosolute;
+  top: 0;
+  left: 0;
+}
+.input-group-text.instock-group{
+  position: relative;
+  margin-bottom: 20px;
+}
+.checkbox__in-stock{
+  top: 0;
+}
+.instock-group__label::before{
+  /* top: 4px !important; */
+}

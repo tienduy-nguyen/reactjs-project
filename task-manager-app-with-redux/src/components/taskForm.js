@@ -98,15 +98,13 @@ class TaskForm extends Component {
               required="required"
               name="status"
               value={this.state.status}
-              onChange={this.onChange}
-            >
+              onChange={this.onChange}>
               <option value={true}>Activate</option>
               <option value={false}>Deactivate</option>
             </select>
             <br />
             <div className="text-center">
-              <button type="submit" className="btn btn-warning" href='/#'
-              >
+              <button type="submit" className="btn btn-warning" href='/#'>
                 <i className="fas fa-plus mr-2"></i>Save
               </button>&nbsp;
               <button type="button" className="btn btn-danger" href='/#'
