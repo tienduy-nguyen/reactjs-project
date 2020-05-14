@@ -78,6 +78,10 @@ body {
 .card-header__icon:hover {
   color: #e25454;
 }
+.task-done{
+  text-decoration: line-through;
+  color: #ccc;
+}
 .badge {
   font-size: 1rem;
   font-weight: 400;

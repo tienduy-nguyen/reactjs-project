@@ -21,7 +21,7 @@ class TaskItem extends Component {
         return (
             <tr>
                 <td>{index + 1}</td>
-                <td>{task.name}</td>
+                <td className={task.status === true ? 'task-active' : 'task-done'}>{task.name}</td>
                 <td className="text-center">
                     <span
                         onClick={this.onUpdateStatus}
@@ -33,15 +33,13 @@ class TaskItem extends Component {
                 </td>
                 <td className="text-center">
                     <button type="button" className="btn btn-warning" href='/#'
-                        onClick={this.onEditTask}
-                    >
-                        <i className="fas fa-edit mr-2"></i>Edit
+                        onClick={this.onEditTask}>
+                        <i className="fas fa-edit"></i>
                     </button>
                                       &nbsp;
                     <button type="button" className="btn btn-danger" href='/#'
                         onClick={this.onDeleteTask}>
-                        <i className="fas fa-trash mr-2"
-                        ></i>Remove
+                        <i className="fas fa-trash"></i>
                     </button>
                 </td>
             </tr>
