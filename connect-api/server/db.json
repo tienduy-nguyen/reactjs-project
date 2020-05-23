@@ -1,39 +1,32 @@
 {
   "products": [
     {
-      "id": "5",
-      "name": "name 5",
-      "description": "description 5",
-      "price": 23,
-      "status": false
-    },
-    {
-      "id": "6",
       "name": "name 6",
-      "description": "description 6",
       "price": 15,
-      "status": false
+      "description": "description 6",
+      "status": true,
+      "id": "6"
     },
     {
-      "id": "7",
       "name": "name 7",
-      "description": "description 7",
       "price": 62,
-      "status": false
+      "description": "description 7",
+      "status": true,
+      "id": "7"
     },
     {
-      "id": "8",
       "name": "name 8",
-      "description": "description 8",
       "price": 60,
-      "status": false
+      "description": "description 8 test",
+      "status": false,
+      "id": "8"
     },
     {
-      "id": "9",
       "name": "name 9",
+      "price": "40",
       "description": "description 9",
-      "price": 50,
-      "status": false
+      "status": false,
+      "id": "9"
     },
     {
       "id": "10",
@@ -127,13 +120,6 @@
       "status": false
     },
     {
-      "name": "dsqfqsf",
-      "price": "200",
-      "description": "sdfqsdf",
-      "status": true,
-      "id": "w4VijwZ"
-    },
-    {
       "name": "Iphone 7",
       "price": "200000",
       "description": "Xem nao",
@@ -141,18 +127,46 @@
       "id": "nZ08ich"
     },
     {
-      "name": "Nguyen Mai Phuong",
-      "price": "400",
-      "description": "qsdfqsdf",
+      "name": "NGUYEN Tien Duy",
+      "price": "4",
+      "description": "Something",
       "status": true,
-      "id": "lJ9aaka"
+      "id": "7veR2AG"
+    },
+    {
+      "name": "Học angular 4",
+      "price": "1",
+      "description": "Some things interesting",
+      "status": true,
+      "id": "4liySap"
+    },
+    {
+      "name": "Học angular 4",
+      "price": "3",
+      "description": "Test with history",
+      "status": true,
+      "id": "Cq3Zxa2"
     },
     {
       "name": "NGUYEN Tien Duy",
-      "price": "999",
-      "description": "dfqsdf",
+      "price": "3",
+      "description": "Test with history",
       "status": true,
-      "id": "0RpCdtm"
+      "id": "JPwLT4U"
+    },
+    {
+      "name": "Iphone 7",
+      "price": "200000",
+      "description": "Xem nao",
+      "status": false,
+      "id": "7d8hD44"
+    },
+    {
+      "name": "Iphone 7",
+      "price": "200000",
+      "description": "Xem nao",
+      "status": false,
+      "id": "5oeRcbd"
     }
   ]
 }

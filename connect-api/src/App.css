@@ -16,7 +16,7 @@ body {
 .mt-15 {
   margin-top: 15px;
 }
-.mb-10{
+.mb-10 {
   margin-bottom: 10px;
 }
 
@@ -27,7 +27,7 @@ body {
 .mr-2 {
   margin-right: 2px;
 }
-.mb-5{
+.mb-5 {
   margin-bottom: 5px;
 }
 
@@ -95,26 +95,26 @@ body {
   padding: 4px 8px;
 }
 
-.active{
-  background-color: #494E53;
+.active {
+  background-color: #494e53;
   font-weight: 600;
 }
-.btn{
+.btn {
   margin-left: 0;
 }
 
-.product-form__add{
+.product-form__add {
   position: abosolute;
   top: 0;
   left: 0;
 }
-.input-group-text.instock-group{
+.input-group-text.instock-group {
   position: relative;
   margin-bottom: 20px;
 }
-.checkbox__in-stock{
+.checkbox__in-stock {
   top: 0;
 }
-.instock-group__label::before{
+.instock-group__label::before {
   /* top: 4px !important; */
 }
