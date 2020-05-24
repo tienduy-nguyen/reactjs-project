@@ -1,11 +1,11 @@
 {
   "products": [
     {
+      "id": "6",
       "name": "name 6",
+      "description": "description 6 +  changed with dispatch action",
       "price": 15,
-      "description": "description 6",
-      "status": true,
-      "id": "6"
+      "status": true
     },
     {
       "name": "name 7",
@@ -15,25 +15,11 @@
       "id": "7"
     },
     {
-      "name": "name 8",
-      "price": 60,
-      "description": "description 8 test",
-      "status": false,
-      "id": "8"
-    },
-    {
       "name": "name 9",
       "price": "40",
       "description": "description 9",
       "status": false,
       "id": "9"
-    },
-    {
-      "id": "10",
-      "name": "name 10",
-      "description": "description 10",
-      "price": 64,
-      "status": false
     },
     {
       "id": "11",
@@ -167,6 +153,20 @@
       "description": "Xem nao",
       "status": false,
       "id": "5oeRcbd"
+    },
+    {
+      "id": "kxckloc",
+      "name": "Ipad",
+      "description": "Test with redux thunk",
+      "price": "800",
+      "status": true
+    },
+    {
+      "id": "DFB5NtW",
+      "name": "Apple",
+      "description": "Test with redux thunk",
+      "price": "240",
+      "status": false
     }
   ]
 }

@@ -3,17 +3,12 @@ import { Link } from 'react-router-dom';
 import ProductList from '../../components/product-list/productList';
 import ProductItem from '../../components/product-item/productItem';
 import { connect } from 'react-redux';
-import callApi from '../../utils/apiCaller';
-import { actFetchProductsRequest } from '../../actions/index';
+import {
+  actFetchProductsRequest,
+  actDeleteProductRequest,
+} from '../../actions/index';
 
 class ProductListPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: [],
-    };
-  }
-
   //Lay du lieu tu serve ta su dung life cycle hook
   UNSAFE_componentWillMount() {
     this.props.fetchAllProducts();
@@ -50,30 +45,7 @@ class ProductListPage extends Component {
   };
 
   onDelete = (id) => {
-    callApi(`products/${id}`, 'DELETE', null).then((res) => {
-      //Sau khi callAPI thi tren server se xoa, tuy nhien ta can xoa ca trong mang
-      let products = this.state.products;
-      if (res.status === 200) {
-        let index = -1;
-        index = this.findIndex(products, id);
-        if (index >= 0) {
-          products.splice(index, 1);
-        }
-      }
-      this.setState({
-        products: products,
-      });
-    });
-  };
-
-  findIndex = (products, id) => {
-    let result = -1;
-    products.forEach((product, index) => {
-      if (product.id === id) {
-        return (result = index);
-      }
-    });
-    return result;
+    this.props.onDeleteProduct(id);
   };
 }
 
@@ -87,6 +59,9 @@ const mapDispatchToProps = (dispatch, props) => {
   return {
     fetchAllProducts: () => {
       dispatch(actFetchProductsRequest());
+    },
+    onDeleteProduct: (id) => {
+      dispatch(actDeleteProductRequest(id));
     },
   };
 };
