@@ -1,23 +1,21 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import './App.css';
-import Contact from './component/Contact';
+import Contacts from './component/Contacts';
 import Header from './component/Header';
+import { Provider } from './Context';
 
 function App() {
   return (
-    <div className='App'>
-      <Header></Header>
-      <Contact
-        name='Jonh Doe'
-        email='Jdoe@gmail.com'
-        phone='555-555-555'
-      ></Contact>
-      <Contact
-        name='Jonh Smith'
-        email='Jsmith@gmail.com'
-        phone='333-333-333'
-      ></Contact>
-    </div>
+    <Provider>
+      <div className='App'>
+        <Header></Header>
+        <div className='container'>
+          <Contacts></Contacts>
+        </div>
+      </div>
+    </Provider>
   );
 }
 
