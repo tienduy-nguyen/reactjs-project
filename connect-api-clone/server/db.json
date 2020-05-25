@@ -1,0 +1,171 @@
+{
+  "products": [{
+      "id": "6",
+      "name": "name 6",
+      "description": "description 6 +  changed with dispatch action",
+      "price": 15,
+      "status": true
+    },
+    {
+      "name": "name 7",
+      "price": 62,
+      "description": "description 7",
+      "status": true,
+      "id": "7"
+    },
+    {
+      "name": "name 9",
+      "price": "40",
+      "description": "description 9",
+      "status": false,
+      "id": "9"
+    },
+    {
+      "id": "11",
+      "name": "name 11",
+      "description": "description 11",
+      "price": 96,
+      "status": false
+    },
+    {
+      "id": "12",
+      "name": "name 12",
+      "description": "description 12",
+      "price": 21,
+      "status": false
+    },
+    {
+      "id": "13",
+      "name": "name 13",
+      "description": "description 13",
+      "price": 88,
+      "status": false
+    },
+    {
+      "id": "14",
+      "name": "name 14",
+      "description": "description 14",
+      "price": 51,
+      "status": false
+    },
+    {
+      "id": "15",
+      "name": "name 15",
+      "description": "description 15",
+      "price": 94,
+      "status": false
+    },
+    {
+      "id": "16",
+      "name": "name 16",
+      "description": "description 16",
+      "price": 87,
+      "status": false
+    },
+    {
+      "id": "17",
+      "name": "name 17",
+      "description": "description 17",
+      "price": 95,
+      "status": false
+    },
+    {
+      "id": "18",
+      "name": "name 18",
+      "description": "description 18",
+      "price": 16,
+      "status": false
+    },
+    {
+      "id": "19",
+      "name": "name 19",
+      "description": "description 19",
+      "price": 78,
+      "status": false
+    },
+    {
+      "id": "20",
+      "name": "name 20",
+      "description": "description 20",
+      "price": 37,
+      "status": false
+    },
+    {
+      "id": "21",
+      "name": "name 21",
+      "description": "description 21",
+      "price": 43,
+      "status": false
+    },
+    {
+      "id": "22",
+      "name": "name 22",
+      "description": "description 22",
+      "price": 63,
+      "status": false
+    },
+    {
+      "name": "Iphone 7",
+      "price": "200000",
+      "description": "Xem nao",
+      "status": true,
+      "id": "nZ08ich"
+    },
+    {
+      "name": "NGUYEN Tien Duy",
+      "price": "4",
+      "description": "Something",
+      "status": true,
+      "id": "7veR2AG"
+    },
+    {
+      "name": "Học angular 4",
+      "price": "1",
+      "description": "Some things interesting",
+      "status": true,
+      "id": "4liySap"
+    },
+    {
+      "name": "Học angular 4",
+      "price": "3",
+      "description": "Test with history",
+      "status": true,
+      "id": "Cq3Zxa2"
+    },
+    {
+      "name": "NGUYEN Tien Duy",
+      "price": "3",
+      "description": "Test with history",
+      "status": true,
+      "id": "JPwLT4U"
+    },
+    {
+      "name": "Iphone 7",
+      "price": "200000",
+      "description": "Xem nao",
+      "status": false,
+      "id": "7d8hD44"
+    },
+    {
+      "name": "Iphone 7",
+      "price": "200000",
+      "description": "Xem nao",
+      "status": false,
+      "id": "5oeRcbd"
+    },
+    {
+      "id": "kxckloc",
+      "name": "Ipad",
+      "description": "Test with redux thunk",
+      "price": "800",
+      "status": true
+    },
+    {
+      "id": "DFB5NtW",
+      "name": "Apple",
+      "description": "Test with redux thunk",
+      "price": "240",
+      "status": false
+    }
+  ]
+}
