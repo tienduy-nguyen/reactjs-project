@@ -60,6 +60,7 @@ class AddContact extends Component {
         phone: '',
       },
     });
+    this.props.history.push('/');
   };
 
   render() {
