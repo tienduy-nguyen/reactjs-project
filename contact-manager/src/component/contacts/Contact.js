@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../Context';
+import axios from 'axios';
 
 class Contact extends Component {
   state = {
@@ -10,7 +12,11 @@ class Contact extends Component {
     this.setState({ showContactInfo: !this.state.showContactInfo });
   };
   onDeleteHandler = (id, dispatch) => {
-    dispatch({ type: 'DELETE_CONTACT', payload: id });
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then((res) => {
+        dispatch({ type: 'DELETE_CONTACT', payload: id });
+      });
   };
 
   render() {
@@ -40,6 +46,18 @@ class Contact extends Component {
                       fontSize: '18px',
                     }}
                   ></i>
+                  <Link to={`contact/edit/${id}`}>
+                    <i
+                      className='fas fa-pencil-alt'
+                      style={{
+                        cursor: 'pointer',
+                        float: 'right',
+                        color: 'black',
+                        marginRight: '0.5rem',
+                        fontSize: '14px',
+                      }}
+                    ></i>
+                  </Link>
                 </h4>
                 {showContactInfo ? (
                   <div className='card-body pt-0 pb-2'>

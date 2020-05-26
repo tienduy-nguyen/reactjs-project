@@ -6,6 +6,7 @@ import './App.css';
 import Contacts from './component/contacts/Contacts';
 import Header from './component/layout/Header';
 import AddContact from './component/contacts/AddContact';
+import EditContact from './component/contacts/EditContact';
 import About from './component/pages/About';
 import NotFound from './component/pages/NotFoundPage';
 import { Provider } from './Context';
@@ -19,6 +20,11 @@ function App() {
           <div className='container'>
             <Switch>
               <Route exact path='/' component={Contacts}></Route>
+              <Route
+                exact
+                path='/contact/edit/:id'
+                component={EditContact}
+              ></Route>
               <Route exact path='/contact/add' component={AddContact}></Route>
               <Route exact path='/about' component={About}></Route>
               <Route component={NotFound}></Route>
