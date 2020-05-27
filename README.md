@@ -1,2 +1,2 @@
-# reactjs-project
-Learning Reactjs
+# ReactJS-project
+Learning and practice ReactJS
