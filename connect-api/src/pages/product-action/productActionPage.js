@@ -20,15 +20,11 @@ class ProductActionPage extends Component {
   }
 
   UNSAFE_componentWillMount() {
-    console.log('ComponentWillMount');
     let { match } = this.props;
     if (match) {
       let id = match.params.id;
       this.props.onEditProduct(id);
     }
-  }
-  UNSAFE_componentDinMount() {
-    console.log('componentDidMount');
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
