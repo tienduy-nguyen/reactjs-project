@@ -1,52 +1,71 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import Spinner from '../layout/Spinner';
 
 class Clients extends Component {
-  render() {
-    const clients = [
-      {
-        id: '434344344',
-        firstName: 'Kevin',
-        lastName: 'Johnson',
-        email: 'kevin@gmail.com',
-        phone: '555-555-5555',
-        balance: '30',
-      },
-      {
-        id: '661616',
-        firstName: 'Karen',
-        lastName: 'Smith',
-        email: 'kSmith@gmail.com',
-        phone: '555-555-5556',
-        balance: '1000',
-      },
-    ];
+  state = {
+    totalOwed: null,
+  };
 
+  static getDerivedStateFromProps(props, state) {
+    const { clients } = props;
+    if (clients) {
+      //Add balances
+      const total = clients.reduce((total, client) => {
+        return total + parseFloat(client.balance.toString());
+      }, 0);
+      return { totalOwed: total };
+    }
+    return null;
+  }
+
+  render() {
+    const { clients } = this.props;
+    const { totalOwed } = this.state;
     if (clients) {
       return (
         <div>
           <div className='row'>
-            <div className='col-md-6'>
+            <div className='col-md-6 col-lg-6'>
               <h2>
                 {' '}
                 <i className='fas fa-users'></i> Clients{' '}
               </h2>
             </div>
-            <div className='col-md-6'></div>
+            <div className='col-md-6 col-lg-6'>
+              <h5
+                className='text-right text-secondary'
+                style={{
+                  padding: '0px',
+                  verticalAlign: 'bottom',
+                  marginTop: '0px',
+                  marginBottom: '0px',
+                }}
+              >
+                Total owed{' '}
+                <span className='text-primary'>
+                  ${parseFloat(totalOwed).toFixed(2)}
+                </span>{' '}
+              </h5>
+            </div>
           </div>
           <table className='table table-striped'>
             <thead className='thead-inverse'>
               <tr>
-                <th scope='col'>Name</th>
-                <th scope='col'>Email</th>
-                <th scope='col'>Balance</th>
-                <th scope='col'></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Balance</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {clients.map((client, index) => (
                 <tr key={index}>
-                  <td scope='row'>
+                  <td>
                     {client.firstName} {client.lastName}
                   </td>
                   <td>{client.email}</td>
@@ -54,7 +73,7 @@ class Clients extends Component {
                   <td>
                     <Link
                       to={`/client/${client.id}`}
-                      className='btn btn-secondary btn-sm'
+                      className='btn btn-secondary btn-sm float-right'
                     >
                       <i className='fas fa-arrow-circle-right'></i> Details
                     </Link>
@@ -66,9 +85,19 @@ class Clients extends Component {
         </div>
       );
     } else {
-      return <h1>Loading...</h1>;
+      return <Spinner></Spinner>;
     }
   }
 }
 
-export default Clients;
+Clients.propsTypes = {
+  firestore: PropTypes.object.isRequired,
+  clients: PropTypes.array,
+};
+
+export default compose(
+  firestoreConnect(() => ['clients']), // sync clients collection from Firestore into redux
+  connect((state) => ({
+    clients: state.firestore.ordered.clients,
+  }))
+)(Clients);

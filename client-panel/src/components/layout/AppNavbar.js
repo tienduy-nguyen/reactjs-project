@@ -9,23 +9,26 @@ class AppNavbar extends Component {
           <Link to='/' className='navbar-brand'>
             Client Panel
           </Link>
-        </div>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-toggle='collapse'
-          data-target='#navbarmain'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-        <div className='collapse navbar-collapse' id='navbarMain'>
-          <ul className='navbar-nav mr-auto'>
-            <li className='nav-item'>
-              <Link to='/' className='nav-link'>
-                Dashboard
-              </Link>
-            </li>
-          </ul>
+          <button
+            className='navbar-toggler'
+            type='button'
+            data-toggle='collapse'
+            data-target='#navbarMain'
+            aria-controls='navbarSupportedContent'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+          >
+            <span className='navbar-toggler-icon'></span>
+          </button>
+          <div className='collapse navbar-collapse' id='navbarMain'>
+            <ul className='navbar-nav mr-auto'>
+              <li className='nav-item'>
+                <Link to='/' className='nav-link'>
+                  Dashboard
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     );
