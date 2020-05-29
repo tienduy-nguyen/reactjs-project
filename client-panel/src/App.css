@@ -2,3 +2,13 @@
   margin: 0;
   padding: 0;
 }
+
+.social-auth {
+  justify-content: center;
+}
+.social-auth i {
+  font-size: 26px;
+  margin-right: 20px;
+  margin-top: 8px;
+  cursor: pointer;
+}

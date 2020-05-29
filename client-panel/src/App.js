@@ -9,6 +9,10 @@ import Dashboard from './components/layout/Dashboard';
 import AddClient from './components/clients/AddClient';
 import ClientDetails from './components/clients/ClientDetails';
 import EditClient from './components/clients/EditClient';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
+import ConfirmReset from './components/auth/ConfirmReset';
+import ResetPassword from './components/auth/ResetPassword';
 
 function App() {
   return (
@@ -21,6 +25,14 @@ function App() {
             <Route exact path='/client/add' component={AddClient}></Route>
             <Route exact path='/client/edit/:id' component={EditClient}></Route>
             <Route exact path='/client/:id' component={ClientDetails}></Route>
+            <Route exact path='/login' component={Login}></Route>
+            <Route exact path='/signup' component={Signup}></Route>
+            <Route exact path='/confirmreset' component={ConfirmReset}></Route>
+            <Route
+              exact
+              path='/resetpassword'
+              component={ResetPassword}
+            ></Route>
           </Switch>
         </div>
       </div>

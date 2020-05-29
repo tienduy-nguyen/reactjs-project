@@ -1,20 +1,12 @@
 import { createStore, combineReducers, compose } from 'redux';
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
 import { firebaseReducer } from 'react-redux-firebase';
 import { createFirestoreInstance, firestoreReducer } from 'redux-firestore';
+import firebase_Config from './constants/firebaseConfig';
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyB9Wj_K91ZnTqi_Cj31mgSKBh5WK2_6ZqQ',
-  authDomain: 'd-react-client-panel.firebaseapp.com',
-  databaseURL: 'https://d-react-client-panel.firebaseio.com',
-  projectId: 'd-react-client-panel',
-  storageBucket: 'd-react-client-panel.appspot.com',
-  messagingSenderId: '854447044226',
-  appId: '1:854447044226:web:3cece12f247c699140e69b',
-  measurementId: 'G-E6XWR3SGZ1',
-};
-
+const firebaseConfig = firebase_Config;
 //react-redux firebase config
 const rrfConfig = {
   userProfile: 'users',
