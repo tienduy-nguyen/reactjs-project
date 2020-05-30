@@ -15,6 +15,8 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import ConfirmReset from './components/auth/ConfirmReset';
 import ResetPassword from './components/auth/ResetPassword';
+import Settings from './components/settings/Settings';
+import NotFound from './components/layout/NotFound';
 
 function App() {
   return (
@@ -63,6 +65,12 @@ function App() {
               path='/resetpassword'
               component={UserIsNotAuthenticated(ResetPassword)}
             ></Route>
+            <Route
+              exact
+              path='/settings'
+              component={UserIsAuthenticated(Settings)}
+            ></Route>
+            <Route component={UserIsNotAuthenticated(NotFound)}></Route>
           </Switch>
         </div>
       </div>

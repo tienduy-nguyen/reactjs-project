@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import {compose} from 'redux';
-// import {connect} from 'react-redux';
-// import { firebaseConnect } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { notifyUser } from '../../actions/notifyAction';
+import Alert from '../layout/Alert';
+import PropTypes from 'prop-types';
 
 class Signup extends Component {
   state = {
@@ -14,6 +16,13 @@ class Signup extends Component {
       confirmPassword: '',
     },
   };
+
+  componentWillMount() {
+    const { allowRegistration } = this.props.settings;
+    if (!allowRegistration) {
+      this.props.history.push('/');
+    }
+  }
 
   onChange = (event) => {
     const name = event.target.name;
@@ -38,32 +47,26 @@ class Signup extends Component {
   onSubmit = (event) => {
     event.preventDefault();
     const { email, password, confirmPassword } = this.state;
-    console.log('submit');
+    const { firebase, notifyUser } = this.props;
     if (password !== confirmPassword) return;
 
-    const { firebase } = this.props;
-
-    firebase
-      .login({ email, password })
-      .catch((err) => alert('Invalid Login Credentials'));
-
-    //Clear form
-    this.setState({
-      name: '',
-      email: '',
-      errors: {
-        confirmPassword: '',
-      },
+    firebase.createUser({ email, password }).catch((err) => {
+      notifyUser('That user already exists', 'error');
+      return;
     });
-    this.props.history.push('/');
+    // this.props.history.push('/');
   };
   render() {
     const { email, password, confirmPassword, errors } = this.state;
+    const { message, messageType } = this.props.notify;
     const errConfirmPassword = errors.confirmPassword;
     return (
       <div className='row'>
         <div className='col-md-6 col-lg-6 mx-auto'>
           <div className='card p-2'>
+            {message ? (
+              <Alert message={message} messageType={messageType}></Alert>
+            ) : null}
             <div className='body'>
               <div className='card-bory'>
                 <h1 className='text-center pb-4 pt-3'>
@@ -170,4 +173,20 @@ class Signup extends Component {
     );
   }
 }
-export default Signup;
+
+Signup.propTypes = {
+  firebase: PropTypes.object.isRequired,
+  notify: PropTypes.func.isRequired,
+  notifyUser: PropTypes.object.isRequired,
+};
+
+export default compose(
+  firebaseConnect(),
+  connect(
+    (state, props) => ({
+      notify: state.notify,
+      settings: state.settings,
+    }),
+    { notifyUser }
+  )
+)(Signup);
