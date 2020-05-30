@@ -6,12 +6,11 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store, rrfProps } from './store';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <App />
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')

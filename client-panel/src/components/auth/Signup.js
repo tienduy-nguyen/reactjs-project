@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // import {compose} from 'redux';
 // import {connect} from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
+// import { firebaseConnect } from 'react-redux-firebase';
 
 class Signup extends Component {
   state = {
@@ -68,24 +68,35 @@ class Signup extends Component {
               <div className='card-bory'>
                 <h1 className='text-center pb-4 pt-3'>
                   <span className='text-primary'>
-                    <i className='fas fa-lock'></i> Sign Up
+                    <i className='fas fa-user-plus'></i> Sign Up
                   </span>
                 </h1>
                 <form onSubmit={this.onSubmit}>
-                  <div className='form-group'>
-                    <label htmlFor='Email'>Email</label>
+                  <div className='input-group mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text' id='basic-addon1'>
+                        <i className='far fa-envelope'></i>
+                      </span>
+                    </div>
                     <input
                       className='form-control'
                       type='email'
                       name='email'
                       placeholder='Enter Email'
                       value={email}
+                      autoComplete='email'
                       onChange={this.onChange}
                       required
+                      aria-label='Email'
+                      aria-describedby='basic-addon1'
                     ></input>
                   </div>
-                  <div className='form-group'>
-                    <label htmlFor='password'>Password</label>
+                  <div className='input-group mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>
+                        <i className='fas fa-key'></i>
+                      </span>
+                    </div>
                     <input
                       className='form-control'
                       type='password'
@@ -97,8 +108,12 @@ class Signup extends Component {
                       required
                     ></input>
                   </div>
-                  <div className='form-group'>
-                    <label htmlFor='confirmPassword'>Confirm Password</label>
+                  <div className='input-group mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>
+                        <i className='fas fa-key'></i>
+                      </span>
+                    </div>
                     <input
                       className={`form-control ${
                         errConfirmPassword ? 'is-invalid' : ''
@@ -123,6 +138,24 @@ class Signup extends Component {
                     value='SIGNUP'
                   ></input>
                 </form>
+                <div className='text-center mx-auto mt-2'>
+                  <span>Or</span>
+                  <br></br>
+                  <div className='social-auth d-flex text-center'>
+                    <a href='#!' className='btn-li mx-1'>
+                      <i className='fab fa-facebook btn-floating btn-fa'></i>
+                    </a>
+                    <a href='#!' className=' btn-li mx-1'>
+                      <i className='fab fa-google-plus btn-floating btn-ggs'></i>
+                    </a>
+                    <a href='#!' className=' btn-li mx-1'>
+                      <i className='fab fa-twitter btn-floating btn-tw'></i>
+                    </a>
+                    <a href='#!' className=' btn-li mx-1'>
+                      <i className='fab fa-github btn-floating btn-gh'></i>
+                    </a>
+                  </div>
+                </div>
                 <div className='text-center mx-auto mt-4'>
                   <small>
                     <span>Have already account?</span>{' '}

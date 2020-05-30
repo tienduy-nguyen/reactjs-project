@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import {compose} from 'redux';
-import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import Alert from '../layout/Alert';
+import { notifyUser } from '../../actions/notifyAction';
 
 class Login extends Component {
   state = {
@@ -21,20 +23,24 @@ class Login extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const { firebase } = this.props;
+    const { firebase, notifyUser } = this.props;
     const { email, password } = this.state;
 
     firebase.login({ email, password }).catch((err) => {
-      alert('Invalid Login Credentials');
+      notifyUser('Invalid Login Credentials', 'error');
       return;
     });
   };
   render() {
     const { email, password } = this.state;
+    const { message, messageType } = this.props.notify;
     return (
       <div className='row'>
         <div className='col-md-6 col-lg-6 mx-auto'>
           <div className='card p-2'>
+            {message ? (
+              <Alert message={message} messageType={messageType}></Alert>
+            ) : null}
             <div className='body'>
               <div className='card-bory'>
                 <h1 className='text-center pb-4 pt-3'>
@@ -43,8 +49,12 @@ class Login extends Component {
                   </span>
                 </h1>
                 <form onSubmit={this.onSubmit}>
-                  <div className='form-group'>
-                    <label htmlFor='Email'>Email</label>
+                  <div className='input-group mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text' id='basic-addon1'>
+                        <i className='far fa-envelope'></i>
+                      </span>
+                    </div>
                     <input
                       className='form-control'
                       type='email'
@@ -54,10 +64,17 @@ class Login extends Component {
                       autoComplete='email'
                       onChange={this.onChange}
                       required
+                      aria-label='Email'
+                      aria-describedby='basic-addon1'
                     ></input>
                   </div>
-                  <div className='form-group'>
-                    <label htmlFor='password'>Password</label>
+
+                  <div className='input-group mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>
+                        <i className='fas fa-key'></i>
+                      </span>
+                    </div>
                     <input
                       className='form-control'
                       type='password'
@@ -80,10 +97,18 @@ class Login extends Component {
                   <span>Or</span>
                   <br></br>
                   <div className='social-auth d-flex text-center'>
-                    <i className='fab fa-facebook'></i>
-                    <i className='fab fa-google-plus'></i>
-                    <i className='fab fa-twitter'></i>
-                    <i className='fab fa-github'></i>
+                    <a href='#!' className='btn-li mx-1'>
+                      <i className='fab fa-facebook btn-floating btn-fa'></i>
+                    </a>
+                    <a href='#!' className=' btn-li mx-1'>
+                      <i className='fab fa-google-plus btn-floating btn-ggs'></i>
+                    </a>
+                    <a href='#!' className=' btn-li mx-1'>
+                      <i className='fab fa-twitter btn-floating btn-tw'></i>
+                    </a>
+                    <a href='#!' className=' btn-li mx-1'>
+                      <i className='fab fa-github btn-floating btn-gh'></i>
+                    </a>
                   </div>
                 </div>
                 <div className='text-center mx-auto mt-4'>
@@ -106,4 +131,12 @@ class Login extends Component {
 Login.propTypes = {
   firebase: PropTypes.object.isRequired,
 };
-export default firebaseConnect()(Login);
+export default compose(
+  firebaseConnect(),
+  connect(
+    (state, props) => ({
+      notify: state.notify,
+    }),
+    { notifyUser }
+  )
+)(Login);

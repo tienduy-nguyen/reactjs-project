@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import {compose} from 'redux';
 // import {connect} from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
+// import { firebaseConnect } from 'react-redux-firebase';
 
 class ResetPassword extends Component {
   state = {
@@ -28,12 +28,19 @@ class ResetPassword extends Component {
           <div className='card p-2'>
             <div className='body'>
               <div className='card-bory'>
-                <h1 className='text-center pb-4 pt-3'>
-                  <span className='text-primary'>Reset Password</span>
-                </h1>
+                <div className='text-center pb-4 pt-3'>
+                  <span>
+                    To reset your password, enter the email address you use to
+                    sign in.
+                  </span>
+                </div>
                 <form onSubmit={this.onSubmit}>
-                  <div className='form-group'>
-                    <label htmlFor='Email'>Email</label>
+                  <div className='input-group mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>
+                        <i className='far fa-envelope'></i>
+                      </span>
+                    </div>
                     <input
                       className='form-control'
                       type='email'
@@ -45,11 +52,10 @@ class ResetPassword extends Component {
                       required
                     ></input>
                   </div>
-
                   <input
                     type='submit'
                     className='btn btn-primary form-control'
-                    value='Reset My Password'
+                    value='Get Reset Link'
                   ></input>
                 </form>
               </div>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import {compose} from 'redux';
 // import {connect} from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
+// import { firebaseConnect } from 'react-redux-firebase';
 
 class ResetPassword extends Component {
   state = {
@@ -39,7 +39,7 @@ class ResetPassword extends Component {
     console.log('submit');
     if (password !== confirmPassword) return;
 
-    const { firebase } = this.props;
+    // const { firebase } = this.props;
   };
   render() {
     const { password, confirmPassword, errors } = this.state;

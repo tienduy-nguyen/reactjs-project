@@ -12,3 +12,21 @@
   margin-top: 8px;
   cursor: pointer;
 }
+.btn-floating {
+  border: none;
+  border-radius: 999px;
+  box-shadow: 2px 2px 4px #999;
+}
+
+.btn-fa {
+  color: #0879e9;
+}
+.btn-ggs {
+  color: #c63332;
+}
+.btn-tw {
+  color: #1c9deb;
+}
+.btn-gh {
+  color: black;
+}
