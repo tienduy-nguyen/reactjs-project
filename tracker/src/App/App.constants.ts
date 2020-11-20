@@ -1,0 +1,2 @@
+export const DELETE_TRANSACTION = 'app/DELETE_TRANSACTION';
+export const ADD_TRANSACTION = 'app/ADD_TRANSACTION';
