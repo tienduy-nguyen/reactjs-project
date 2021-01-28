@@ -1,11 +1,28 @@
 {
-  "books": [{
+  "books": [
+    {
       "name": "Great Gatsby",
       "id": 1
     },
     {
       "name": "Harry Potter",
       "id": 2
+    },
+    {
+      "name": "The walking dead",
+      "id": 3
+    },
+    {
+      "name": "Javascript",
+      "id": 4
+    },
+    {
+      "name": "Typescript",
+      "id": 5
+    },
+    {
+      "name": "Python awesome",
+      "id": 6
     }
   ]
 }
