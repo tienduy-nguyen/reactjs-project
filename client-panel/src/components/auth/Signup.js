@@ -141,24 +141,6 @@ class Signup extends Component {
                     value='SIGNUP'
                   ></input>
                 </form>
-                <div className='text-center mx-auto mt-2'>
-                  <span>Or</span>
-                  <br></br>
-                  <div className='social-auth d-flex text-center'>
-                    <a href='#!' className='btn-li mx-1'>
-                      <i className='fab fa-facebook btn-floating btn-fa'></i>
-                    </a>
-                    <a href='#!' className=' btn-li mx-1'>
-                      <i className='fab fa-google-plus btn-floating btn-ggs'></i>
-                    </a>
-                    <a href='#!' className=' btn-li mx-1'>
-                      <i className='fab fa-twitter btn-floating btn-tw'></i>
-                    </a>
-                    <a href='#!' className=' btn-li mx-1'>
-                      <i className='fab fa-github btn-floating btn-gh'></i>
-                    </a>
-                  </div>
-                </div>
                 <div className='text-center mx-auto mt-4'>
                   <small>
                     <span>Have already account?</span>{' '}
