@@ -19,7 +19,8 @@ const rrfConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Init firestore
-const firestore = firebase.firestore();
+// eslint-disable-next-line no-unused-vars
+firebase.firestore();
 
 // Add firebase to reducers
 const rootReducer = combineReducers({
@@ -29,7 +30,7 @@ const rootReducer = combineReducers({
   settings: settingsReducer,
 });
 
-//Check for settings and localstorage
+//Check for settings and local storage
 if (localStorage.getItem('settings') === null) {
   //Default settings
   const defaultSettings = {

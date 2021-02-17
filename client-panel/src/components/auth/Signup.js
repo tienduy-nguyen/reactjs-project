@@ -7,6 +7,16 @@ import { notifyUser } from '../../actions/notifyAction';
 import Alert from '../layout/Alert';
 import PropTypes from 'prop-types';
 
+const mapStateToProps = (state) => ({
+  notify: state.notify,
+  settings: state.settings,
+});
+const mapDispatchToProps = {
+  notifyUser,
+};
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
 class Signup extends Component {
   state = {
     email: '',
@@ -17,7 +27,7 @@ class Signup extends Component {
     },
   };
 
-  componentWillMount() {
+  UNSAFE_componentDidMount() {
     const { allowRegistration } = this.props.settings;
     if (!allowRegistration) {
       this.props.history.push('/');
@@ -158,17 +168,6 @@ class Signup extends Component {
 
 Signup.propTypes = {
   firebase: PropTypes.object.isRequired,
-  notify: PropTypes.func.isRequired,
-  notifyUser: PropTypes.object.isRequired,
 };
 
-export default compose(
-  firebaseConnect(),
-  connect(
-    (state, props) => ({
-      notify: state.notify,
-      settings: state.settings,
-    }),
-    { notifyUser }
-  )
-)(Signup);
+export default compose(firebaseConnect(), connector)(Signup);
